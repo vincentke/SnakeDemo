@@ -33,6 +33,7 @@ void MainWindow::on_startButton_clicked()
         }
         else{
             setUpGame();
+            ui->scoreLabel->setText("Score: " + QString::number(snakeLength));
         }
         running = true;
         ui->label->hide();
@@ -133,9 +134,11 @@ void MainWindow::collisionDetection(){
 }
 
 void MainWindow::newGoal(){
+    //Get new random numbers within frame;
+    //Convert to multiples of 20 to get grid space
     int rand = (xFrame + qrand() % wFrame);
-    rand = (yFrame + qrand() % hFrame);
     goal[0] = rand - (rand % 20);;
+    rand = (yFrame + qrand() % hFrame);
     goal[1] = rand - (rand % 20);;
 }
 
@@ -173,5 +176,4 @@ void MainWindow::keyPressEvent(QKeyEvent *k){
     else if(key==Qt::Key_Space){
         on_startButton_clicked();
     }
-    QWidget::keyPressEvent(k);
 }
