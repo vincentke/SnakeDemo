@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new">
+        <file>seg.png</file>
+        <file>goal.png</file>
+    </qresource>
+</RCC>
